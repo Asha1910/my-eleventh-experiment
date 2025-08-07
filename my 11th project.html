@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Palette</title>
+  <link rel="stylesheet" href="abc.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Mood Palette</h1>
+    <p>Select your current mood to get a matching color and music!</p>
+    
+    <div class="mood-buttons">
+      <button onclick="setMood('happy')">😊 Happy</button>
+      <button onclick="setMood('sad')">😢 Sad</button>
+      <button onclick="setMood('calm')">😌 Calm</button>
+      <button onclick="setMood('energetic')">⚡ Energetic</button>
+    </div>
+
+    <div class="result" id="resultBox">
+      <h2 id="moodTitle"></h2>
+      <p id="suggestion"></p>
+    </div>
+  </div>
+
+  <script>
+    function setMood(mood) {
+      const resultBox = document.getElementById('resultBox');
+      const title = document.getElementById('moodTitle');
+      const suggestion = document.getElementById('suggestion');
+
+      document.body.className = mood; // Change background
+
+      switch (mood) {
+        case 'happy':
+          title.textContent = "You're feeling Happy!";
+          suggestion.textContent = "Try listening to 'Happy' by Pharrell Williams!";
+          break;
+        case 'sad':
+          title.textContent = "You're feeling Sad.";
+          suggestion.textContent = "How about 'Someone Like You' by Adele?";
+          break;
+        case 'calm':
+          title.textContent = "You're feeling Calm.";
+          suggestion.textContent = "Play some Lo-fi beats to relax your mind.";
+          break;
+        case 'energetic':
+          title.textContent = "You're feeling Energetic!";
+          suggestion.textContent = "Blast 'Eye of the Tiger' by Survivor!";
+          break;
+      }
+
+      resultBox.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
